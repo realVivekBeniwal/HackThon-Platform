@@ -47,30 +47,30 @@ export default function Compete() {
     <div className="max-w-6xl mx-auto py-12 px-4 space-y-20">
       {/* Hero Section */}
       <motion.div initial={{ opacity: 0, y: -40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col md:flex-row items-center gap-8 mb-12">
-        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="bg-blue-100 rounded-full p-8 shadow-lg mb-4 md:mb-0">
-          <TrophyIcon className="h-16 w-16 text-blue-600 animate-bounce" />
+        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="bg-blue-100 dark:bg-blue-900/20 rounded-full p-8 shadow-lg mb-4 md:mb-0">
+          <TrophyIcon className="h-16 w-16 text-blue-600 dark:text-blue-400 animate-bounce" />
         </motion.div>
         <div>
-          <h1 className="text-4xl font-bold text-blue-900 mb-2">Compete & Win</h1>
-          <p className="text-lg text-blue-700 mb-4">Showcase your skills in hackathons, coding contests, and team challenges. Win prizes, recognition, and job offers!</p>
-          <motion.button whileHover={{ scale: 1.08 }} className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition">Start Competing</motion.button>
+          <h1 className="text-4xl font-bold text-blue-900 dark:text-blue-100 mb-2">Compete & Win</h1>
+          <p className="text-lg text-blue-700 dark:text-blue-300 mb-4">Showcase your skills in hackathons, coding contests, and team challenges. Win prizes, recognition, and job offers!</p>
+          <motion.button whileHover={{ scale: 1.08 }} className="px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition">Start Competing</motion.button>
         </div>
       </motion.div>
       {/* Competition Types */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Competition Types</h2>
+        <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Competition Types</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {competitionTypes.map((type, i) => {
             const Icon = type.icon;
             return (
-              <motion.div key={type.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} whileHover={{ scale: 1.04 }} className={`glassmorphism bg-gradient-to-br ${type.color} rounded-xl shadow-xl p-6 flex items-center gap-6`}>
-                <Icon className="h-12 w-12 text-blue-600 animate-bounce" />
+              <motion.div key={type.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} whileHover={{ scale: 1.04 }} className={`glassmorphism bg-gradient-to-br ${type.color} dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-xl p-6 flex items-center gap-6`}>
+                <Icon className="h-12 w-12 text-blue-600 dark:text-blue-400 animate-bounce" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-blue-900 mb-1">{type.name}</h3>
+                  <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">{type.name}</h3>
                   <div className="w-full bg-blue-200 rounded-full h-3 mb-2">
                     <div className="bg-blue-600 h-3 rounded-full" style={{ width: `${type.progress}%` }}></div>
                   </div>
-                  <span className="text-blue-700 text-sm">{type.progress}% popularity</span>
+                  <span className="text-blue-700 dark:text-blue-300 text-sm">{type.progress}% popularity</span>
                 </div>
               </motion.div>
             );
@@ -79,19 +79,19 @@ export default function Compete() {
       </div>
       {/* Featured Hackathons */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Featured Hackathons</h2>
+        <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Featured Hackathons</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {featuredHackathons.map((hack, i) => {
             const Icon = hack.icon;
             return (
-              <motion.div key={hack.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white rounded-xl shadow-lg p-6 flex items-center gap-6">
-                <Icon className="h-10 w-10 text-blue-600 animate-bounce" />
+              <motion.div key={hack.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex items-center gap-6">
+                <Icon className="h-10 w-10 text-blue-600 dark:text-blue-400 animate-bounce" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-blue-900 mb-1">{hack.title}</h3>
-                  <p className="text-blue-700 text-sm mb-1">{hack.desc}</p>
-                  <span className="text-xs text-blue-500">Organizer: {hack.organizer}</span>
+                  <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">{hack.title}</h3>
+                  <p className="text-blue-700 dark:text-blue-300 text-sm mb-1">{hack.desc}</p>
+                  <span className="text-xs text-blue-500 dark:text-blue-400">Organizer: {hack.organizer}</span>
                 </div>
-                <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition flex items-center">Register <ArrowRightIcon className="h-4 w-4 ml-1" /></motion.button>
+                <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition flex items-center">Register <ArrowRightIcon className="h-4 w-4 ml-1" /></motion.button>
               </motion.div>
             );
           })}
@@ -99,46 +99,46 @@ export default function Compete() {
       </div>
       {/* Team Challenges */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Team Challenges</h2>
+        <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Team Challenges</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {teamChallenges.map((challenge, i) => (
-            <motion.div key={challenge.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-blue-50 rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <UsersIcon className="h-10 w-10 text-blue-600 mb-2 animate-pulse" />
-              <h3 className="font-semibold text-blue-900 mb-1">{challenge.title}</h3>
-              <span className="text-blue-700 text-sm mb-1">Organizer: {challenge.organizer}</span>
-              <span className="text-xs text-blue-500 mb-2">{new Date(challenge.date).toLocaleDateString()}</span>
-              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition">Join</motion.button>
+            <motion.div key={challenge.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-blue-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <UsersIcon className="h-10 w-10 text-blue-600 dark:text-blue-400 mb-2 animate-pulse" />
+              <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">{challenge.title}</h3>
+              <span className="text-blue-700 dark:text-blue-300 text-sm mb-1">Organizer: {challenge.organizer}</span>
+              <span className="text-xs text-blue-500 dark:text-blue-400 mb-2">{new Date(challenge.date).toLocaleDateString()}</span>
+              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition">Join</motion.button>
             </motion.div>
           ))}
         </div>
       </div>
       {/* Judge Spotlights */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Judge Spotlights</h2>
+        <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Judge Spotlights</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {judges.map((judge, i) => (
-            <motion.div key={judge.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <motion.div key={judge.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img src={judge.img} alt={judge.name} className="h-16 w-16 rounded-full mb-2" />
-              <h3 className="font-semibold text-blue-900 mb-1">{judge.name}</h3>
-              <span className="text-blue-700 text-sm mb-2">{judge.bio}</span>
-              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition">View Profile</motion.button>
+              <h3 className="font-semibold text-blue-900 dark:text-blue-100 mb-1">{judge.name}</h3>
+              <span className="text-blue-700 dark:text-blue-300 text-sm mb-2">{judge.bio}</span>
+              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg font-semibold shadow hover:bg-blue-700 dark:hover:bg-blue-600 transition">View Profile</motion.button>
             </motion.div>
           ))}
         </div>
       </div>
       {/* Winner Stories */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Winner Stories</h2>
+        <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Winner Stories</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <AnimatePresence>
             {testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 30 }} transition={{ delay: i * 0.12 }} className="bg-blue-50 rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <motion.div key={t.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 30 }} transition={{ delay: i * 0.12 }} className="bg-blue-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
                 <img src={t.img} alt={t.name} className="h-14 w-14 rounded-full mb-2" />
-                <p className="text-blue-800 mb-2 text-center">"{t.text}"</p>
+                <p className="text-blue-800 dark:text-blue-200 mb-2 text-center">"{t.text}"</p>
                 <div className="flex mb-1">
                   {[...Array(t.rating)].map((_, idx) => <StarIcon key={idx} className="h-5 w-5 text-yellow-400" />)}
                 </div>
-                <span className="font-semibold text-blue-900">{t.name}</span>
+                <span className="font-semibold text-blue-900 dark:text-blue-100">{t.name}</span>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -146,17 +146,38 @@ export default function Compete() {
       </div>
       {/* FAQ Section */}
       <div>
-        <h2 className="text-2xl font-bold text-blue-900 mb-6">Frequently Asked Questions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <motion.div key={faq.q} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} className="bg-white rounded-xl shadow-lg p-6">
-              <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="flex items-center justify-between w-full text-left font-semibold text-blue-900 text-lg">
-                {faq.q}
-                <span>{openFaq === i ? '-' : '+'}</span>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+            >
+              <button
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center"
+              >
+                <span className="font-semibold text-blue-900 dark:text-blue-100">{faq.q}</span>
+                <ArrowRightIcon
+                  className={`h-5 w-5 text-blue-600 dark:text-blue-400 transform transition-transform ${
+                    openFaq === i ? 'rotate-90' : ''
+                  }`}
+                />
               </button>
               <AnimatePresence>
                 {openFaq === i && (
-                  <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="text-blue-700 mt-2 text-sm overflow-hidden">{faq.a}</motion.p>
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-6 pb-4"
+                  >
+                    <p className="text-blue-700 dark:text-blue-300">{faq.a}</p>
+                  </motion.div>
                 )}
               </AnimatePresence>
             </motion.div>

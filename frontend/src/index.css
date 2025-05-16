@@ -3,8 +3,20 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    @apply bg-white;
+  }
+  
+  html.dark {
+    @apply bg-gray-900;
+  }
+
+  html.dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+
   body {
-    @apply antialiased;
+    @apply antialiased bg-white text-gray-900;
   }
 }
 

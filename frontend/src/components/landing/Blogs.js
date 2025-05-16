@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookOpenIcon, TagIcon, UserCircleIcon, ClockIcon, HeartIcon, ChatBubbleLeftIcon, ArrowRightIcon, ShareIcon, BookmarkIcon } from '@heroicons/react/24/outline';
+import { useTheme } from '../../context/ThemeContext';
 
 const categories = [
   { name: 'Technology', icon: BookOpenIcon, count: 250, color: 'from-indigo-50/80 to-indigo-100/80' },
@@ -74,24 +75,25 @@ const trendingTopics = [
 
 export default function Blogs() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const { isDarkMode } = useTheme();
 
   return (
     <div className="max-w-6xl mx-auto py-12 px-4 space-y-20">
       {/* Hero Section */}
       <motion.div initial={{ opacity: 0, y: -40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col md:flex-row items-center gap-8 mb-12">
-        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="bg-indigo-100 rounded-full p-8 shadow-lg mb-4 md:mb-0">
-          <BookOpenIcon className="h-16 w-16 text-indigo-600 animate-bounce" />
+        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="bg-indigo-100 dark:bg-indigo-900/20 rounded-full p-8 shadow-lg mb-4 md:mb-0">
+          <BookOpenIcon className="h-16 w-16 text-indigo-600 dark:text-indigo-400 animate-bounce" />
         </motion.div>
         <div>
-          <h1 className="text-4xl font-bold text-indigo-900 mb-2">Tech Blog & Insights</h1>
-          <p className="text-lg text-indigo-700 mb-4">Discover the latest in technology, career advice, and industry trends.</p>
-          <motion.button whileHover={{ scale: 1.08 }} className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold shadow hover:bg-indigo-700 transition">Start Reading</motion.button>
+          <h1 className="text-4xl font-bold text-indigo-900 dark:text-indigo-100 mb-2">Tech Blog & Insights</h1>
+          <p className="text-lg text-indigo-700 dark:text-indigo-300 mb-4">Discover the latest in technology, career advice, and industry trends.</p>
+          <motion.button whileHover={{ scale: 1.08 }} className="px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg font-semibold shadow hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">Start Reading</motion.button>
         </div>
       </motion.div>
 
       {/* Blog Categories */}
       <div>
-        <h2 className="text-2xl font-bold text-indigo-900 mb-6">Categories</h2>
+        <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-6">Categories</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {categories.map((category, i) => {
             const Icon = category.icon;
@@ -103,12 +105,12 @@ export default function Blogs() {
                 transition={{ delay: i * 0.15 }}
                 whileHover={{ scale: 1.04 }}
                 onClick={() => setSelectedCategory(category.name)}
-                className={`glassmorphism bg-gradient-to-br ${category.color} rounded-xl shadow-xl p-6 flex items-center gap-6 cursor-pointer ${selectedCategory === category.name ? 'ring-2 ring-indigo-500' : ''}`}
+                className={`glassmorphism bg-gradient-to-br ${category.color} dark:bg-gray-800/50 rounded-xl shadow-xl p-6 flex items-center gap-6 cursor-pointer ${selectedCategory === category.name ? 'ring-2 ring-indigo-500 dark:ring-indigo-400' : ''}`}
               >
-                <Icon className="h-12 w-12 text-indigo-600 animate-pulse" />
+                <Icon className="h-12 w-12 text-indigo-600 dark:text-indigo-400 animate-pulse" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-indigo-900 mb-1">{category.name}</h3>
-                  <span className="text-indigo-700 text-sm">{category.count}+ articles</span>
+                  <h3 className="font-semibold text-indigo-900 dark:text-indigo-100 mb-1">{category.name}</h3>
+                  <span className="text-indigo-700 dark:text-indigo-300 text-sm">{category.count}+ articles</span>
                 </div>
               </motion.div>
             );
@@ -118,27 +120,27 @@ export default function Blogs() {
 
       {/* Featured Posts */}
       <div>
-        <h2 className="text-2xl font-bold text-indigo-900 mb-6">Featured Posts</h2>
+        <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-6">Featured Posts</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {featuredPosts.map((post, i) => (
-            <motion.div key={post.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white rounded-xl shadow-lg overflow-hidden">
+            <motion.div key={post.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
               <img src={post.coverImg} alt={post.title} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <img src={post.author.img} alt={post.author.name} className="h-10 w-10 rounded-full" />
                   <div>
-                    <h4 className="font-semibold text-indigo-900">{post.author.name}</h4>
-                    <p className="text-indigo-600 text-sm">{post.author.role}</p>
+                    <h4 className="font-semibold text-indigo-900 dark:text-indigo-100">{post.author.name}</h4>
+                    <p className="text-indigo-600 dark:text-indigo-400 text-sm">{post.author.role}</p>
                   </div>
                 </div>
-                <h3 className="font-bold text-xl text-indigo-900 mb-2">{post.title}</h3>
-                <p className="text-indigo-700 text-sm mb-4">{post.excerpt}</p>
+                <h3 className="font-bold text-xl text-indigo-900 dark:text-indigo-100 mb-2">{post.title}</h3>
+                <p className="text-indigo-700 dark:text-indigo-300 text-sm mb-4">{post.excerpt}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {post.tags.map(tag => (
-                    <span key={tag} className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded-full text-xs">{tag}</span>
+                    <span key={tag} className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded-full text-xs">{tag}</span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between text-indigo-600 text-sm">
+                <div className="flex items-center justify-between text-sm text-indigo-600 dark:text-indigo-400">
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1">
                       <HeartIcon className="h-4 w-4" />
@@ -162,18 +164,18 @@ export default function Blogs() {
 
       {/* Top Authors */}
       <div>
-        <h2 className="text-2xl font-bold text-indigo-900 mb-6">Top Authors</h2>
+        <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-6">Top Authors</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {topAuthors.map((author, i) => (
-            <motion.div key={author.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <motion.div key={author.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img src={author.img} alt={author.name} className="h-20 w-20 rounded-full mb-4" />
-              <h3 className="font-semibold text-indigo-900 text-center mb-1">{author.name}</h3>
-              <p className="text-indigo-600 text-sm text-center mb-3">{author.role}</p>
-              <div className="flex items-center gap-4 text-sm text-indigo-700">
+              <h3 className="font-semibold text-indigo-900 dark:text-indigo-100 text-center mb-1">{author.name}</h3>
+              <p className="text-indigo-600 dark:text-indigo-400 text-sm text-center mb-3">{author.role}</p>
+              <div className="flex items-center gap-4 text-sm text-indigo-700 dark:text-indigo-300">
                 <span>{author.posts} posts</span>
                 <span>{author.followers} followers</span>
               </div>
-              <motion.button whileHover={{ scale: 1.08 }} className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg font-semibold shadow hover:bg-indigo-700 transition">Follow</motion.button>
+              <motion.button whileHover={{ scale: 1.08 }} className="mt-4 px-4 py-2 bg-indigo-600 dark:bg-indigo-500 text-white rounded-lg font-semibold shadow hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">Follow</motion.button>
             </motion.div>
           ))}
         </div>
@@ -181,7 +183,7 @@ export default function Blogs() {
 
       {/* Trending Topics */}
       <div>
-        <h2 className="text-2xl font-bold text-indigo-900 mb-6">Trending Topics</h2>
+        <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100 mb-6">Trending Topics</h2>
         <div className="flex flex-wrap gap-4">
           {trendingTopics.map((topic, i) => (
             <motion.div
@@ -190,7 +192,7 @@ export default function Blogs() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ scale: 1.08 }}
-              className="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full font-medium cursor-pointer hover:bg-indigo-200 transition"
+              className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 rounded-full font-medium cursor-pointer hover:bg-indigo-200 dark:hover:bg-indigo-800/50 transition"
             >
               #{topic.replace(/\s+/g, '')}
             </motion.div>
@@ -199,10 +201,10 @@ export default function Blogs() {
       </div>
 
       {/* CTA Section */}
-      <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-xl shadow-xl p-10 flex flex-col items-center mt-16">
+      <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="bg-gradient-to-r from-indigo-600 to-indigo-400 dark:from-indigo-700 dark:to-indigo-500 rounded-xl shadow-xl p-10 flex flex-col items-center mt-16">
         <h2 className="text-3xl font-bold text-white mb-4">Share Your Knowledge</h2>
         <p className="text-indigo-100 text-lg mb-6 text-center">Join our community of tech writers and share your insights with millions of developers.</p>
-        <motion.button whileHover={{ scale: 1.08 }} className="px-8 py-4 bg-white text-indigo-900 font-bold rounded-lg shadow hover:bg-indigo-100 transition text-xl flex items-center">Start Writing <ArrowRightIcon className="h-6 w-6 ml-2" /></motion.button>
+        <motion.button whileHover={{ scale: 1.08 }} className="px-8 py-4 bg-white dark:bg-gray-100 text-indigo-900 font-bold rounded-lg shadow hover:bg-indigo-100 dark:hover:bg-gray-200 transition text-xl flex items-center">Start Writing <ArrowRightIcon className="h-6 w-6 ml-2" /></motion.button>
       </motion.div>
     </div>
   );

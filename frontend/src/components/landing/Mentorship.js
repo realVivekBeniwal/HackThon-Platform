@@ -42,28 +42,28 @@ export default function Mentorship() {
     <div className="max-w-6xl mx-auto py-12 px-4 space-y-20">
       {/* Hero Section */}
       <motion.div initial={{ opacity: 0, y: -40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} className="flex flex-col md:flex-row items-center gap-8 mb-12">
-        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="bg-purple-100 rounded-full p-8 shadow-lg mb-4 md:mb-0">
-          <UserGroupIcon className="h-16 w-16 text-purple-600 animate-bounce" />
+        <motion.div initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="bg-purple-100 dark:bg-purple-900/20 rounded-full p-8 shadow-lg mb-4 md:mb-0">
+          <UserGroupIcon className="h-16 w-16 text-purple-600 dark:text-purple-400 animate-bounce" />
         </motion.div>
         <div>
-          <h1 className="text-4xl font-bold text-purple-900 mb-2">Find Your Perfect Mentor</h1>
-          <p className="text-lg text-purple-700 mb-4">Connect with industry experts, get career guidance, and accelerate your growth with personalized mentorship.</p>
-          <motion.button whileHover={{ scale: 1.08 }} className="px-6 py-3 bg-purple-600 text-white rounded-lg font-semibold shadow hover:bg-purple-700 transition">Get Started</motion.button>
+          <h1 className="text-4xl font-bold text-purple-900 dark:text-purple-100 mb-2">Find Your Perfect Mentor</h1>
+          <p className="text-lg text-purple-700 dark:text-purple-300 mb-4">Connect with industry experts, get career guidance, and accelerate your growth with personalized mentorship.</p>
+          <motion.button whileHover={{ scale: 1.08 }} className="px-6 py-3 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-semibold shadow hover:bg-purple-700 dark:hover:bg-purple-600 transition">Get Started</motion.button>
         </div>
       </motion.div>
 
       {/* Mentor Categories */}
       <div>
-        <h2 className="text-2xl font-bold text-purple-900 mb-6">Mentorship Categories</h2>
+        <h2 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-6">Mentor Categories</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {mentorCategories.map((category, i) => {
             const Icon = category.icon;
             return (
-              <motion.div key={category.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} whileHover={{ scale: 1.04 }} className={`glassmorphism bg-gradient-to-br ${category.color} rounded-xl shadow-xl p-6 flex items-center gap-6`}>
-                <Icon className="h-12 w-12 text-purple-600 animate-pulse" />
+              <motion.div key={category.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.15 }} whileHover={{ scale: 1.04 }} className={`glassmorphism bg-gradient-to-br ${category.color} dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-xl p-6 flex items-center gap-6`}>
+                <Icon className="h-12 w-12 text-purple-600 dark:text-purple-400 animate-bounce" />
                 <div className="flex-1">
-                  <h3 className="font-semibold text-purple-900 mb-1">{category.name}</h3>
-                  <span className="text-purple-700 text-sm">{category.count}+ Available Mentors</span>
+                  <h3 className="font-semibold text-purple-900 dark:text-purple-100 mb-1">{category.name}</h3>
+                  <span className="text-purple-700 dark:text-purple-300 text-sm">{category.count} mentors available</span>
                 </div>
               </motion.div>
             );
@@ -73,19 +73,19 @@ export default function Mentorship() {
 
       {/* Featured Mentors */}
       <div>
-        <h2 className="text-2xl font-bold text-purple-900 mb-6">Featured Mentors</h2>
+        <h2 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-6">Featured Mentors</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredMentors.map((mentor, i) => (
-            <motion.div key={mentor.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+            <motion.div key={mentor.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img src={mentor.img} alt={mentor.name} className="h-20 w-20 rounded-full mb-4" />
-              <h3 className="font-semibold text-purple-900 text-center mb-1">{mentor.name}</h3>
-              <p className="text-purple-700 text-sm text-center mb-2">{mentor.role}</p>
-              <p className="text-purple-600 text-xs text-center mb-3">{mentor.expertise}</p>
+              <h3 className="font-semibold text-purple-900 dark:text-purple-100 text-center mb-1">{mentor.name}</h3>
+              <p className="text-purple-700 dark:text-purple-300 text-sm text-center mb-2">{mentor.role}</p>
+              <p className="text-purple-600 dark:text-purple-400 text-xs text-center mb-3">{mentor.expertise}</p>
               <div className="flex items-center gap-1 mb-4">
                 <StarIcon className="h-5 w-5 text-yellow-400" />
-                <span className="text-purple-700">{mentor.rating}</span>
+                <span className="text-purple-700 dark:text-purple-300">{mentor.rating}</span>
               </div>
-              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-purple-600 text-white rounded-lg font-semibold shadow hover:bg-purple-700 transition">Book Session</motion.button>
+              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-semibold shadow hover:bg-purple-700 dark:hover:bg-purple-600 transition">Book Session</motion.button>
             </motion.div>
           ))}
         </div>
@@ -93,27 +93,16 @@ export default function Mentorship() {
 
       {/* Upcoming Sessions */}
       <div>
-        <h2 className="text-2xl font-bold text-purple-900 mb-6">Upcoming Group Sessions</h2>
+        <h2 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-6">Upcoming Sessions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {upcomingSessions.map((session, i) => (
-            <motion.div key={session.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-purple-50 rounded-xl shadow-lg p-6">
-              <h3 className="font-semibold text-purple-900 mb-2">{session.title}</h3>
-              <div className="flex items-center gap-2 text-purple-700 text-sm mb-2">
-                <UserCircleIcon className="h-5 w-5" />
-                <span>{session.mentor}</span>
-              </div>
-              <div className="flex items-center gap-2 text-purple-700 text-sm mb-2">
-                <CalendarIcon className="h-5 w-5" />
-                <span>{new Date(session.date).toLocaleDateString()}</span>
-              </div>
-              <div className="flex items-center gap-2 text-purple-700 text-sm mb-4">
-                <ClockIcon className="h-5 w-5" />
-                <span>{session.time}</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-purple-600 text-sm">{session.spots} spots left</span>
-                <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-purple-600 text-white rounded-lg font-semibold shadow hover:bg-purple-700 transition">Join</motion.button>
-              </div>
+            <motion.div key={session.title} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} whileHover={{ scale: 1.04 }} className="bg-purple-50 dark:bg-gray-800 rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <CalendarIcon className="h-10 w-10 text-purple-600 dark:text-purple-400 mb-2 animate-pulse" />
+              <h3 className="font-semibold text-purple-900 dark:text-purple-100 mb-1">{session.title}</h3>
+              <span className="text-purple-700 dark:text-purple-300 text-sm mb-1">Mentor: {session.mentor}</span>
+              <span className="text-xs text-purple-500 dark:text-purple-400 mb-2">{new Date(session.date).toLocaleDateString()} at {session.time}</span>
+              <span className="text-xs text-purple-500 dark:text-purple-400 mb-2">{session.spots} spots left</span>
+              <motion.button whileHover={{ scale: 1.08 }} className="px-4 py-2 bg-purple-600 dark:bg-purple-500 text-white rounded-lg font-semibold shadow hover:bg-purple-700 dark:hover:bg-purple-600 transition">Book Now</motion.button>
             </motion.div>
           ))}
         </div>
@@ -121,36 +110,61 @@ export default function Mentorship() {
 
       {/* Success Stories */}
       <div>
-        <h2 className="text-2xl font-bold text-purple-900 mb-6">Success Stories</h2>
+        <h2 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-6">Success Stories</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {successStories.map((story, i) => (
-            <motion.div key={story.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img src={story.img} alt={story.name} className="h-16 w-16 rounded-full mb-4" />
-              <p className="text-purple-800 mb-4 text-center italic">"{story.text}"</p>
-              <div className="flex mb-2">
-                {[...Array(story.rating)].map((_, idx) => (
-                  <StarIcon key={idx} className="h-5 w-5 text-yellow-400" />
-                ))}
+            <motion.div key={story.name} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
+              <div className="flex items-center gap-4 mb-4">
+                <img src={story.img} alt={story.name} className="h-12 w-12 rounded-full" />
+                <div>
+                  <h3 className="font-semibold text-purple-900 dark:text-purple-100">{story.name}</h3>
+                  <div className="flex items-center">
+                    {[...Array(story.rating)].map((_, i) => (
+                      <StarIcon key={i} className="h-4 w-4 text-yellow-400" />
+                    ))}
+                  </div>
+                </div>
               </div>
-              <span className="font-semibold text-purple-900">{story.name}</span>
+              <p className="text-purple-700 dark:text-purple-300">{story.text}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* FAQ Section */}
+      {/* FAQs */}
       <div>
-        <h2 className="text-2xl font-bold text-purple-900 mb-6">Frequently Asked Questions</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <h2 className="text-2xl font-bold text-purple-900 dark:text-purple-100 mb-6">Frequently Asked Questions</h2>
+        <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <motion.div key={faq.q} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} className="bg-white rounded-xl shadow-lg p-6">
-              <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="flex items-center justify-between w-full text-left font-semibold text-purple-900 text-lg">
-                {faq.q}
-                <span>{openFaq === i ? '-' : '+'}</span>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+            >
+              <button
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full px-6 py-4 text-left flex justify-between items-center"
+              >
+                <span className="font-semibold text-purple-900 dark:text-purple-100">{faq.q}</span>
+                <ArrowRightIcon
+                  className={`h-5 w-5 text-purple-600 dark:text-purple-400 transform transition-transform ${
+                    openFaq === i ? 'rotate-90' : ''
+                  }`}
+                />
               </button>
               <AnimatePresence>
                 {openFaq === i && (
-                  <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} className="text-purple-700 mt-2 text-sm overflow-hidden">{faq.a}</motion.p>
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="px-6 pb-4"
+                  >
+                    <p className="text-purple-700 dark:text-purple-300">{faq.a}</p>
+                  </motion.div>
                 )}
               </AnimatePresence>
             </motion.div>

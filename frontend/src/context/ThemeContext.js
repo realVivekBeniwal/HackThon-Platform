@@ -11,12 +11,14 @@ export const ThemeProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const html = window.document.documentElement;
     if (isDarkMode) {
-      root.classList.add('dark');
+      html.classList.remove('light');
+      html.classList.add('dark');
       localStorage.setItem('theme', 'dark');
     } else {
-      root.classList.remove('dark');
+      html.classList.remove('dark');
+      html.classList.add('light');
       localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
